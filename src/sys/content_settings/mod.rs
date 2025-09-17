@@ -18,6 +18,7 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 extern "C" {
+  /// <https://developer.chrome.com/docs/extensions/reference/api/contentSettings>
   pub type ContentSettings;
 
   #[wasm_bindgen(method, getter = "camera")]

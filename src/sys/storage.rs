@@ -3,6 +3,7 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 extern "C" {
+  /// <https://developer.chrome.com/docs/extensions/reference/api/storage>
   pub type Storage;
 
   #[wasm_bindgen(method, getter = "local")]
@@ -19,19 +20,19 @@ extern "C" {
 extern "C" {
   pub type StorageArea;
 
-  #[wasm_bindgen(catch, method, js_name = "clear")]
+  #[wasm_bindgen(method, catch, js_name = "clear")]
   pub async fn clear(this: &StorageArea) -> Result<JsValue, JsValue>;
 
-  #[wasm_bindgen(catch, method, js_name = "get")]
+  #[wasm_bindgen(method, catch, js_name = "get")]
   pub async fn get(this: &StorageArea, keys: &JsValue) -> Result<JsValue, JsValue>;
 
-  #[wasm_bindgen(catch, method, js_name = "remove")]
+  #[wasm_bindgen(method, catch, js_name = "remove")]
   pub async fn remove(this: &StorageArea, keys: &JsValue) -> Result<JsValue, JsValue>;
 
-  #[wasm_bindgen(catch, method, js_name = "set")]
+  #[wasm_bindgen(method, catch, js_name = "set")]
   pub async fn set(this: &StorageArea, keys: &Object) -> Result<JsValue, JsValue>;
 
-  #[wasm_bindgen(catch, method, js_name = "setAccessLevel")]
+  #[wasm_bindgen(method, catch, js_name = "setAccessLevel")]
   pub async fn set_access_level(this: &StorageArea, options: AccessOptions) -> Result<(), JsValue>;
 }
 

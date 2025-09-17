@@ -6,19 +6,19 @@ use wasm_bindgen::prelude::*;
 extern "C" {
   pub type CameraContentSetting;
 
-  #[wasm_bindgen(catch, method, js_name = "clear")]
+  #[wasm_bindgen(method, catch, js_name = "clear")]
   pub async fn clear(
     this: &CameraContentSetting,
     details: ClearContentSetting,
   ) -> Result<(), JsValue>;
 
-  #[wasm_bindgen(catch, method, js_name = "get")]
+  #[wasm_bindgen(method, catch, js_name = "get")]
   pub async fn get(
     this: &CameraContentSetting,
     details: GetContentSetting,
   ) -> Result<Object, JsValue>;
 
-  #[wasm_bindgen(catch, method, js_name = "set")]
+  #[wasm_bindgen(method, catch, js_name = "set")]
   pub async fn set(
     this: &CameraContentSetting,
     details: SetCameraContentSetting,

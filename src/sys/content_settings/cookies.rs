@@ -6,19 +6,19 @@ use wasm_bindgen::prelude::*;
 extern "C" {
   pub type CookiesContentSetting;
 
-  #[wasm_bindgen(catch, method, js_name = "clear")]
+  #[wasm_bindgen(method, catch, js_name = "clear")]
   pub async fn clear(
     this: &CookiesContentSetting,
     details: ClearContentSetting,
   ) -> Result<(), JsValue>;
 
-  #[wasm_bindgen(catch, method, js_name = "get")]
+  #[wasm_bindgen(method, catch, js_name = "get")]
   pub async fn get(
     this: &CookiesContentSetting,
     details: GetContentSetting,
   ) -> Result<Object, JsValue>;
 
-  #[wasm_bindgen(catch, method, js_name = "set")]
+  #[wasm_bindgen(method, catch, js_name = "set")]
   pub async fn set(
     this: &CookiesContentSetting,
     details: SetCookiesContentSetting,

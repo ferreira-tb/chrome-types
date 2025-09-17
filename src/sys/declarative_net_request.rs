@@ -3,12 +3,13 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 extern "C" {
+  /// <https://developer.chrome.com/docs/extensions/reference/api/declarativeNetRequest>
   pub type DeclarativeNetRequest;
 
-  #[wasm_bindgen(catch, method, js_name = "getDynamicRules")]
+  #[wasm_bindgen(method, catch, js_name = "getDynamicRules")]
   pub async fn get_dynamic_rules(this: &DeclarativeNetRequest) -> Result<Array, JsValue>;
 
-  #[wasm_bindgen(catch, method, js_name = "updateDynamicRules")]
+  #[wasm_bindgen(method, catch, js_name = "updateDynamicRules")]
   pub async fn update_dynamic_rules(
     this: &DeclarativeNetRequest,
     options: UpdateRuleOptions,
