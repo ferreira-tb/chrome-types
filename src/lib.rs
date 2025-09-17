@@ -5,3 +5,4 @@ pub mod content_settings;
 pub mod runtime;
 pub mod storage;
 pub mod sys;
+pub mod tabs;

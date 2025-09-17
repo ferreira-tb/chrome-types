@@ -2,6 +2,7 @@ pub mod content_settings;
 pub mod declarative_net_request;
 pub mod runtime;
 pub mod storage;
+pub mod tabs;
 
 use wasm_bindgen::prelude::*;
 
@@ -10,6 +11,7 @@ use declarative_net_request::DeclarativeNetRequest;
 use js_sys::Function;
 use runtime::Runtime;
 use storage::Storage;
+use tabs::Tabs;
 
 #[wasm_bindgen]
 extern "C" {
@@ -29,6 +31,9 @@ extern "C" {
 
   #[wasm_bindgen(method, getter)]
   pub fn storage(this: &Chrome) -> Storage;
+
+  #[wasm_bindgen(method, getter)]
+  pub fn tabs(this: &Chrome) -> Tabs;
 }
 
 #[wasm_bindgen]
