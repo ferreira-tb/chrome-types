@@ -1,34 +1,29 @@
-pub mod prelude;
+pub mod declarative_net_request;
 pub mod storage;
 
-#[cfg(not(feature = "firefox"))]
-pub mod declarative_net_request;
-
-use prelude::*;
 use wasm_bindgen::prelude::*;
 
-#[cfg(not(feature = "firefox"))]
-use crate::sys::declarative_net_request::DeclarativeNetRequest;
+use declarative_net_request::DeclarativeNetRequest;
+use storage::{Storage, StorageArea};
 
 #[wasm_bindgen]
 extern "C" {
-  pub type Browser;
+  pub type Chrome;
 
-  #[cfg(feature = "firefox")]
-  #[wasm_bindgen(thread_local_v2, js_name = browser)]
-  pub static BROWSER: Browser;
-
-  #[cfg(not(feature = "firefox"))]
   #[wasm_bindgen(thread_local_v2, js_name = chrome)]
-  pub static CHROME: Browser;
+  pub static CHROME: Chrome;
 
   #[wasm_bindgen(method, getter)]
-  pub fn declarative_net_request(this: &Browser) -> DeclarativeNetRequest;
+  pub fn declarative_net_request(this: &Chrome) -> DeclarativeNetRequest;
 
   #[wasm_bindgen(method, getter)]
-  pub fn storage(this: &Browser) -> Storage;
+  pub fn storage(this: &Chrome) -> Storage;
 }
 
 pub fn local_storage() -> StorageArea {
-  CHROME.with(Browser::storage).local()
+  CHROME.with(Chrome::storage).local()
+}
+
+pub fn session_storage() -> StorageArea {
+  CHROME.with(Chrome::storage).session()
 }

@@ -54,7 +54,3 @@ useless_conversion = "deny"
 [lints.clippy.pedantic]
 level = "deny"
 priority = -1
-
-[features]
-default = []
-firefox = []
