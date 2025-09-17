@@ -1,10 +1,12 @@
+pub mod content_settings;
 pub mod declarative_net_request;
 pub mod storage;
 
 use wasm_bindgen::prelude::*;
 
+use content_settings::ContentSettings;
 use declarative_net_request::DeclarativeNetRequest;
-use storage::{Storage, StorageArea};
+use storage::Storage;
 
 #[wasm_bindgen]
 extern "C" {
@@ -14,16 +16,11 @@ extern "C" {
   pub static CHROME: Chrome;
 
   #[wasm_bindgen(method, getter)]
+  pub fn content_settings(this: &Chrome) -> ContentSettings;
+
+  #[wasm_bindgen(method, getter)]
   pub fn declarative_net_request(this: &Chrome) -> DeclarativeNetRequest;
 
   #[wasm_bindgen(method, getter)]
   pub fn storage(this: &Chrome) -> Storage;
-}
-
-pub fn local_storage() -> StorageArea {
-  CHROME.with(Chrome::storage).local()
-}
-
-pub fn session_storage() -> StorageArea {
-  CHROME.with(Chrome::storage).session()
 }
