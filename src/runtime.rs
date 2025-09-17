@@ -9,6 +9,13 @@ pub fn get_manifest() -> Object {
   CHROME.with(Chrome::runtime).get_manifest()
 }
 
+pub async fn send_message(message: &JsValue) -> Result<JsValue, JsValue> {
+  CHROME
+    .with(Chrome::runtime)
+    .send_message(None, message, None)
+    .await
+}
+
 pub fn on_message<F>(callback: F)
 where
   F: Fn(JsValue, Object, SendResponse) -> bool + 'static,
@@ -26,9 +33,23 @@ where
     .add_listener(closure_ref);
 }
 
-pub async fn send_message(message: &JsValue) -> Result<JsValue, JsValue> {
+pub fn on_startup(callback: &Function) {
   CHROME
     .with(Chrome::runtime)
-    .send_message(None, message, None)
-    .await
+    .on_startup()
+    .add_listener(callback);
+}
+
+pub fn on_suspend(callback: &Function) {
+  CHROME
+    .with(Chrome::runtime)
+    .on_suspend()
+    .add_listener(callback);
+}
+
+pub fn on_suspend_canceled(callback: &Function) {
+  CHROME
+    .with(Chrome::runtime)
+    .on_suspend_canceled()
+    .add_listener(callback);
 }

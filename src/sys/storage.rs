@@ -21,16 +21,16 @@ extern "C" {
   pub type StorageArea;
 
   #[wasm_bindgen(method, catch, js_name = "clear")]
-  pub async fn clear(this: &StorageArea) -> Result<JsValue, JsValue>;
+  pub async fn clear(this: &StorageArea) -> Result<(), JsValue>;
 
   #[wasm_bindgen(method, catch, js_name = "get")]
-  pub async fn get(this: &StorageArea, keys: &JsValue) -> Result<JsValue, JsValue>;
+  pub async fn get(this: &StorageArea, keys: &JsValue) -> Result<Object, JsValue>;
 
   #[wasm_bindgen(method, catch, js_name = "remove")]
-  pub async fn remove(this: &StorageArea, keys: &JsValue) -> Result<JsValue, JsValue>;
+  pub async fn remove(this: &StorageArea, keys: &JsValue) -> Result<(), JsValue>;
 
   #[wasm_bindgen(method, catch, js_name = "set")]
-  pub async fn set(this: &StorageArea, keys: &Object) -> Result<JsValue, JsValue>;
+  pub async fn set(this: &StorageArea, keys: &Object) -> Result<(), JsValue>;
 
   #[wasm_bindgen(method, catch, js_name = "setAccessLevel")]
   pub async fn set_access_level(this: &StorageArea, options: AccessOptions) -> Result<(), JsValue>;

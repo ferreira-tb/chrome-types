@@ -19,6 +19,15 @@ extern "C" {
   #[wasm_bindgen(method, getter, js_name = "onMessage")]
   pub fn on_message(this: &Runtime) -> EventTarget;
 
+  #[wasm_bindgen(method, getter, js_name = "onStartup")]
+  pub fn on_startup(this: &Runtime) -> EventTarget;
+
+  #[wasm_bindgen(method, getter, js_name = "onSuspend")]
+  pub fn on_suspend(this: &Runtime) -> EventTarget;
+
+  #[wasm_bindgen(method, getter, js_name = "onSuspendCanceled")]
+  pub fn on_suspend_canceled(this: &Runtime) -> EventTarget;
+
   #[wasm_bindgen(method, js_name = "getManifest")]
   pub fn get_manifest(this: &Runtime) -> Object;
 
