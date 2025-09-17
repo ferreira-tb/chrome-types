@@ -1,2 +1,8 @@
+pub use super::Browser;
 pub use super::storage::*;
-pub use super::{CHROME, Chrome};
+
+#[cfg(feature = "firefox")]
+pub use super::BROWSER;
+
+#[cfg(not(feature = "firefox"))]
+pub use super::CHROME;

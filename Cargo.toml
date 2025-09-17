@@ -1,7 +1,7 @@
 [package]
 name = "chrome-types"
 description = "Bindings for Chrome extensions"
-version = "0.0.2"
+version = "0.0.3"
 edition = "2024"
 rust-version = "1.91"
 license = "MIT"
@@ -54,3 +54,7 @@ useless_conversion = "deny"
 [lints.clippy.pedantic]
 level = "deny"
 priority = -1
+
+[features]
+default = []
+firefox = []

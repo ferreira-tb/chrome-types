@@ -5,13 +5,13 @@ use wasm_bindgen::prelude::*;
 extern "C" {
   pub type Storage;
 
-  #[wasm_bindgen(method, getter)]
+  #[wasm_bindgen(method, getter = "local")]
   pub fn local(this: &Storage) -> StorageArea;
 
-  #[wasm_bindgen(method, getter)]
+  #[wasm_bindgen(method, getter = "session")]
   pub fn session(this: &Storage) -> StorageArea;
 
-  #[wasm_bindgen(method, getter)]
+  #[wasm_bindgen(method, getter = "sync")]
   pub fn sync(this: &Storage) -> StorageArea;
 }
 
