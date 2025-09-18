@@ -7,8 +7,10 @@ pub fn local() -> StorageArea {
   CHROME.with(Chrome::storage).local()
 }
 
-pub async fn get_local(key: &str) -> Result<Object, JsValue> {
-  local().get(&key.into()).await
+pub async fn get_local(key: &str) -> Result<JsValue, JsValue> {
+  let key: JsValue = key.into();
+  let obj = local().get(&key).await?;
+  Reflect::get(&obj, &key)
 }
 
 pub async fn set_local(key: &str, value: &JsValue) -> Result<(), JsValue> {
@@ -21,8 +23,10 @@ pub fn session() -> StorageArea {
   CHROME.with(Chrome::storage).session()
 }
 
-pub async fn get_session(key: &str) -> Result<Object, JsValue> {
-  session().get(&key.into()).await
+pub async fn get_session(key: &str) -> Result<JsValue, JsValue> {
+  let key: JsValue = key.into();
+  let obj = session().get(&key).await?;
+  Reflect::get(&obj, &key)
 }
 
 pub async fn set_session(key: &str, value: &JsValue) -> Result<(), JsValue> {
