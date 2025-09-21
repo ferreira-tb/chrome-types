@@ -7,25 +7,25 @@ extern "C" {
   /// <https://developer.chrome.com/docs/extensions/reference/api/runtime>
   pub type Runtime;
 
-  #[wasm_bindgen(method, getter, js_name = "id")]
+  #[wasm_bindgen(method, getter = "id")]
   pub fn id(this: &Runtime) -> String;
 
-  #[wasm_bindgen(method, getter, js_name = "lastError")]
+  #[wasm_bindgen(method, getter = "lastError")]
   pub fn last_error(this: &Runtime) -> Option<Object>;
 
-  #[wasm_bindgen(method, getter, js_name = "onInstalled")]
+  #[wasm_bindgen(method, getter = "onInstalled")]
   pub fn on_installed(this: &Runtime) -> EventTarget;
 
-  #[wasm_bindgen(method, getter, js_name = "onMessage")]
+  #[wasm_bindgen(method, getter = "onMessage")]
   pub fn on_message(this: &Runtime) -> EventTarget;
 
-  #[wasm_bindgen(method, getter, js_name = "onStartup")]
+  #[wasm_bindgen(method, getter = "onStartup")]
   pub fn on_startup(this: &Runtime) -> EventTarget;
 
-  #[wasm_bindgen(method, getter, js_name = "onSuspend")]
+  #[wasm_bindgen(method, getter = "onSuspend")]
   pub fn on_suspend(this: &Runtime) -> EventTarget;
 
-  #[wasm_bindgen(method, getter, js_name = "onSuspendCanceled")]
+  #[wasm_bindgen(method, getter = "onSuspendCanceled")]
   pub fn on_suspend_canceled(this: &Runtime) -> EventTarget;
 
   #[wasm_bindgen(method, js_name = "getManifest")]

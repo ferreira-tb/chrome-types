@@ -17,7 +17,7 @@ use tabs::Tabs;
 extern "C" {
   pub type Chrome;
 
-  #[wasm_bindgen(thread_local_v2, js_name = chrome)]
+  #[wasm_bindgen(thread_local_v2, js_name = "chrome")]
   pub static CHROME: Chrome;
 
   #[wasm_bindgen(method, getter = "contentSettings")]

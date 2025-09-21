@@ -1,4 +1,5 @@
 use crate::sys::{CHROME, Chrome};
+use hashi::JsResult;
 use js_sys::{Function, Object};
 use wasm_bindgen::prelude::*;
 
@@ -6,7 +7,7 @@ pub fn get_manifest() -> Object {
   CHROME.with(Chrome::runtime).get_manifest()
 }
 
-pub async fn send_message(message: &JsValue) -> Result<JsValue, JsValue> {
+pub async fn send_message(message: &JsValue) -> JsResult {
   CHROME
     .with(Chrome::runtime)
     .send_message(None, message, None)
