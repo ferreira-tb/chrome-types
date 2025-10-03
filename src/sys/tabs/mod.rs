@@ -284,6 +284,12 @@ impl QueryInfo {
   pub fn new() -> Self {
     Object::new().unchecked_into()
   }
+
+  pub fn with_url(url: &str) -> Self {
+    let info = Self::new();
+    info.set_url(url);
+    info
+  }
 }
 
 impl Default for QueryInfo {
