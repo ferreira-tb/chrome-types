@@ -1,5 +1,6 @@
 pub mod tab;
 
+use hashi::JsResult;
 use js_sys::Object;
 use tab::Tab;
 use wasm_bindgen::prelude::*;
@@ -10,7 +11,13 @@ extern "C" {
   pub type Tabs;
 
   #[wasm_bindgen(method, catch, js_name = "create")]
-  pub async fn create(this: &Tabs, properties: &CreateProperties) -> Result<Tab, JsValue>;
+  pub async fn create(this: &Tabs, properties: &CreateProperties) -> JsResult<Tab>;
+
+  #[wasm_bindgen(method, catch, js_name = "getCurrent")]
+  pub async fn get_current(this: &Tabs) -> JsResult<JsValue>;
+
+  #[wasm_bindgen(method, catch, js_name = "remove")]
+  pub async fn remove(this: &Tabs, id: u32) -> JsResult<()>;
 }
 
 #[wasm_bindgen]
