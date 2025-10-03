@@ -1,3 +1,4 @@
+use super::TabId;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -24,7 +25,7 @@ extern "C" {
   pub fn frozen(this: &Tab) -> bool;
 
   #[wasm_bindgen(method, getter = "groupId")]
-  pub fn group_id(this: &Tab) -> u32;
+  pub fn group_id(this: &Tab) -> i32;
 
   #[wasm_bindgen(method, getter = "height")]
   pub fn height(this: &Tab) -> Option<u32>;
@@ -33,7 +34,7 @@ extern "C" {
   pub fn highlighted(this: &Tab) -> bool;
 
   #[wasm_bindgen(method, getter = "id")]
-  pub fn id(this: &Tab) -> Option<u32>;
+  pub fn id(this: &Tab) -> Option<TabId>;
 
   #[wasm_bindgen(method, getter = "incognito")]
   pub fn incognito(this: &Tab) -> bool;
@@ -57,5 +58,5 @@ extern "C" {
   pub fn width(this: &Tab) -> Option<u32>;
 
   #[wasm_bindgen(method, getter = "windowId")]
-  pub fn window_id(this: &Tab) -> u32;
+  pub fn window_id(this: &Tab) -> i32;
 }

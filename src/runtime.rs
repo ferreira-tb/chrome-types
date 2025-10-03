@@ -29,24 +29,3 @@ where
 
   closure.forget();
 }
-
-pub fn on_startup(callback: &Function) {
-  CHROME
-    .with(Chrome::runtime)
-    .on_startup()
-    .add_listener(callback);
-}
-
-pub fn on_suspend(callback: &Function) {
-  CHROME
-    .with(Chrome::runtime)
-    .on_suspend()
-    .add_listener(callback);
-}
-
-pub fn on_suspend_canceled(callback: &Function) {
-  CHROME
-    .with(Chrome::runtime)
-    .on_suspend_canceled()
-    .add_listener(callback);
-}
