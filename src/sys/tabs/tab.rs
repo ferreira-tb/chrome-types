@@ -42,6 +42,15 @@ extern "C" {
   #[wasm_bindgen(method, getter = "index")]
   pub fn index(this: &Tab) -> u32;
 
+  #[wasm_bindgen(method, getter = "lastAccessed")]
+  pub fn last_accessed(this: &Tab) -> u32;
+
+  #[wasm_bindgen(method, getter = "openerTabId")]
+  pub fn opener_tab_id(this: &Tab) -> Option<TabId>;
+
+  #[wasm_bindgen(method, getter = "pendingUrl")]
+  pub fn pending_url(this: &Tab) -> Option<String>;
+
   #[wasm_bindgen(method, getter = "pinned")]
   pub fn pinned(this: &Tab) -> u32;
 
