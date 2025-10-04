@@ -22,7 +22,7 @@ checksum = "2fd1289c04a9ea8cb22300a459a72a385d7c73d3259e2ed7dcb2af674838cfa9"
 
 [[package]]
 name = "chrome-types"
-version = "0.2.2"
+version = "0.3.0"
 dependencies = [
  "hashi",
  "js-sys",
@@ -122,9 +122,9 @@ dependencies = [
 
 [[package]]
 name = "hashi"
-version = "0.1.2"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2bdb515671045b3b30666453ee321b003786ab15f1c8df2832e2a39399b9fa64"
+checksum = "4eba9a168bcbb677136cf0f57d1d447000b491d09d63d73626b51261a67a2967"
 dependencies = [
  "futures",
  "js-sys",

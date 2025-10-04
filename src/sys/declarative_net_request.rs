@@ -6,9 +6,11 @@ extern "C" {
   /// <https://developer.chrome.com/docs/extensions/reference/api/declarativeNetRequest>
   pub type DeclarativeNetRequest;
 
+  /// <https://developer.chrome.com/docs/extensions/reference/api/declarativeNetRequest#method-getDynamicRules>
   #[wasm_bindgen(method, catch, js_name = "getDynamicRules")]
   pub async fn get_dynamic_rules(this: &DeclarativeNetRequest) -> Result<Array, JsValue>;
 
+  /// <https://developer.chrome.com/docs/extensions/reference/api/declarativeNetRequest#method-updateDynamicRules>
   #[wasm_bindgen(method, catch, js_name = "updateDynamicRules")]
   pub async fn update_dynamic_rules(
     this: &DeclarativeNetRequest,

@@ -1,3 +1,4 @@
+use hashi::JsResult;
 use js_sys::Object;
 use wasm_bindgen::prelude::*;
 
@@ -21,19 +22,19 @@ extern "C" {
   pub type StorageArea;
 
   #[wasm_bindgen(method, catch, js_name = "clear")]
-  pub async fn clear(this: &StorageArea) -> Result<(), JsValue>;
+  pub async fn clear(this: &StorageArea) -> JsResult<()>;
 
   #[wasm_bindgen(method, catch, js_name = "get")]
-  pub async fn get(this: &StorageArea, keys: &JsValue) -> Result<Object, JsValue>;
+  pub async fn get(this: &StorageArea, keys: &JsValue) -> JsResult<Object>;
 
   #[wasm_bindgen(method, catch, js_name = "remove")]
-  pub async fn remove(this: &StorageArea, keys: &JsValue) -> Result<(), JsValue>;
+  pub async fn remove(this: &StorageArea, keys: &JsValue) -> JsResult<()>;
 
   #[wasm_bindgen(method, catch, js_name = "set")]
-  pub async fn set(this: &StorageArea, keys: &Object) -> Result<(), JsValue>;
+  pub async fn set(this: &StorageArea, keys: &Object) -> JsResult<()>;
 
   #[wasm_bindgen(method, catch, js_name = "setAccessLevel")]
-  pub async fn set_access_level(this: &StorageArea, options: AccessOptions) -> Result<(), JsValue>;
+  pub async fn set_access_level(this: &StorageArea, options: AccessOptions) -> JsResult<()>;
 }
 
 #[wasm_bindgen]

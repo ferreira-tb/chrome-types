@@ -1,7 +1,7 @@
 [package]
 name = "chrome-types"
 description = "Bindings for Chrome extensions"
-version = "0.2.2"
+version = "0.3.0"
 edition = "2024"
 rust-version = "1.92"
 license = "MIT"
@@ -11,7 +11,7 @@ authors = ["Andrew Ferreira <andrew.shien2@gmail.com>"]
 categories = ["external-ffi-bindings", "wasm"]
 
 [dependencies]
-hashi = "0.1"
+hashi = "0.2"
 js-sys = "0.3"
 wasm-bindgen = "0.2"
 wasm-bindgen-futures = "0.4"
