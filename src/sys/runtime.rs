@@ -44,6 +44,10 @@ extern "C" {
   #[wasm_bindgen(method, js_name = "getManifest")]
   pub fn get_manifest(this: &Runtime) -> Object;
 
+  /// <https://developer.chrome.com/docs/extensions/reference/api/runtime#method-getPlatformInfo>
+  #[wasm_bindgen(method, js_name = "getPlatformInfo")]
+  pub async fn get_platform_info(this: &Runtime) -> PlatformInfo;
+
   /// <https://developer.chrome.com/docs/extensions/reference/api/runtime#method-getURL>
   #[wasm_bindgen(method, js_name = "getURL")]
   pub fn get_url(this: &Runtime, path: &str) -> String;
@@ -77,7 +81,62 @@ extern "C" {
     options: Option<&Object>,
   ) -> JsResult<JsValue>;
 
+  /// <https://developer.chrome.com/docs/extensions/reference/api/runtime#method-sendNativeMessage>
+  #[wasm_bindgen(method, catch, js_name = "sendNativeMessage")]
+  pub async fn send_native_message(
+    this: &Runtime,
+    application: &str,
+    message: &JsValue,
+  ) -> JsResult<JsValue>;
+
   /// <https://developer.chrome.com/docs/extensions/reference/api/runtime#method-setUninstallURL>
   #[wasm_bindgen(method, catch, js_name = "setUninstallURL")]
   pub async fn set_uninstall_url(this: &Runtime, url: &str) -> JsResult<()>;
+}
+
+#[wasm_bindgen]
+extern "C" {
+  pub type PlatformInfo;
+
+  #[wasm_bindgen(method, getter = "arch")]
+  pub fn arch(this: &PlatformInfo) -> PlatformArch;
+
+  #[wasm_bindgen(method, getter = "nacl_arch")]
+  pub fn nacl_arch(this: &PlatformInfo) -> PlatformNaclArch;
+
+  #[wasm_bindgen(method, getter = "os")]
+  pub fn os(this: &PlatformInfo) -> PlatformOs;
+}
+
+#[wasm_bindgen]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PlatformArch {
+  Arm = "arm",
+  Arm64 = "arm64",
+  X86_32 = "x86-32",
+  X86_64 = "x86-64",
+  Mips = "mips",
+  Mips64 = "mips64",
+  Riscv64 = "riscv64",
+}
+
+#[wasm_bindgen]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PlatformNaclArch {
+  Arm = "arm",
+  X86_32 = "x86-32",
+  X86_64 = "x86-64",
+  Mips = "mips",
+  Mips64 = "mips64",
+}
+
+#[wasm_bindgen]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PlatformOs {
+  Mac = "mac",
+  Windows = "win",
+  Android = "android",
+  Chrome = "cros",
+  Linux = "linux",
+  OpenBSD = "openbsd",
 }
