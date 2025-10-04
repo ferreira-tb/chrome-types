@@ -24,6 +24,10 @@ extern "C" {
   #[wasm_bindgen(method, getter = "onMessage")]
   pub fn on_message(this: &Runtime) -> EventTarget;
 
+  /// <https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onMessageExternal>
+  #[wasm_bindgen(method, getter = "onMessageExternal")]
+  pub fn on_message_external(this: &Runtime) -> EventTarget;
+
   /// <https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onStartup>
   #[wasm_bindgen(method, getter = "onStartup")]
   pub fn on_startup(this: &Runtime) -> EventTarget;
